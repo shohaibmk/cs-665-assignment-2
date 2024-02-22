@@ -1,29 +1,40 @@
 
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
-| Name         | FIRST_NAME LAST_NAME       |
-| Date         | MM/DD/YYYY                 |
-| Course       | Fall / Spring / Summer     |
-| Assignment # |                            |
+| Name         | Shohaib Mallick            |
+| Date         | 02/21/2024                 |
+| Course       | Spring                     |
+| Assignment # | 2                          |
 
 # Assignment Overview
 Please add a paragraph or two overviewing the objectives of the assignment.
 
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/shohaibmk/cs-665-assignment-2
 
 # Implementation Description 
 
 
 For each assignment, please answer the following:
 
-- Explain the level of flexibility in your implementation, including how new object types can
-be easily added or removed in the future.
-- Discuss the simplicity and understandability of your implementation, ensuring that it is
-easy for others to read and maintain.
-- Describe how you have avoided duplicated code and why it is important.
-- If applicable, mention any design patterns you have used and explain why they were
-chosen.
+-Flexibility:
+
+The implementation allows for easy addition of new object types, such as additional driver types (e.g., bicycle couriers). To add a new driver type, one only needs to create a new class implementing the Driver interface and implement the notify() and hasReceivedNotification() methods.
+Similarly, if new types of delivery requests need to be accommodated, modifications can be made to the DeliveryRequest class or additional subclasses can be created.
+
+-Simplicity and Understandability:
+
+The implementation follows a straightforward object-oriented design, making it easy to understand for others. Each class has a clear responsibility, such as Shop for managing drivers and generating delivery requests, Driver for representing different driver types, and DeliveryRequest for encapsulating delivery request information. 
+Clear and descriptive method names, along with comments where necessary, enhance readability and maintainability.
+
+-Avoidance of Duplicated Code:
+
+The implementation avoids duplicated code by utilizing interfaces and inheritance. The Driver interface defines common behavior for all driver types, and concrete implementations (VanDriver, TaxiDriver, ScooterDriver) only need to implement specific methods related to their behavior. This approach promotes code reusability and simplifies maintenance.
+Additionally, common functionalities, such as generating and notifying delivery requests, are encapsulated within the Shop class, preventing duplication across multiple classes.
+
+-Design Patterns:
+
+The Observer pattern is utilized in the implementation, where the Shop acts as the Subject and drivers act as Observers. This pattern facilitates loose coupling between the Shop and drivers, allowing for flexibility in adding or removing drivers without modifying the Shop class. The Observer pattern was chosen because it effectively handles the notification system requirement, ensuring that all drivers are informed about new delivery requests efficiently.
 
 
 # Maven Commands

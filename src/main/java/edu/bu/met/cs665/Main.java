@@ -1,14 +1,18 @@
 /**
- * Name: FIRST_NAME LAST_NAME
+ * Name: Shohaib Mallick
  * Course: CS-665 Software Designs & Patterns
- * Date: MM/DD/YYYY
+ * Date: 02/22/2024
  * File Name: Main.java
- * Description: Write a description for this class
+ * Description: Main class
  */
 
 package edu.bu.met.cs665;
 
-import edu.bu.met.cs665.example1.Person;
+
+import edu.bu.met.cs665.example1.*;
+
+import java.sql.Driver;
+import java.util.List;
 
 /**
  * This is the Main class.
@@ -16,23 +20,26 @@ import edu.bu.met.cs665.example1.Person;
 public class Main {
 
   /**
-   * A main method to run examples.
-   * You may use this method for development purposes as you start building your
-   * assignments/final project.  This could prove convenient to test as you are developing.
-   * However, please note that every assignment/final projects requires JUnit tests.
+   * A main method.
    */
   public static void main(String[] args) {
-    System.out.println("This is a test message from the Main class (Main.java file)");
-  }
+    // Create instances of drivers
+    VanDriver vanDriver = new VanDriver();
+    TaxiDriver taxiDriver = new TaxiDriver();
+    ScooterDriver scooterDriver = new ScooterDriver();
 
-  /**
-   * This method performs XYZ and returns String.
-   *
-   * @return String
-   */
-  private String doIt() {
-    Person student = new Person("John", "Doe");
-    return student.getLastName() + ',' + student.getFirstName();
-  }
+    // Create a shop
+    Shop shop = new Shop();
 
+    // Register drivers with the shop
+    shop.registerDriver(vanDriver);
+    shop.registerDriver(taxiDriver);
+    shop.registerDriver(scooterDriver);
+
+    // Generate a delivery request
+    DeliveryRequest request = new DeliveryRequest("123 Main St", List.of("Clothing items package", "Electrornics box"));
+
+    // Notify drivers about the delivery request
+    shop.generateDeliveryRequest(request);
+  }
 }
